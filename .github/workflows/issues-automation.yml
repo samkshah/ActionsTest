@@ -1,4 +1,4 @@
-name: "Issue triage"
+name: Issue triage
 on:
   issues:
     types: [opened,reopened]
@@ -6,7 +6,6 @@ on:
 jobs:
   issue_opened:
     runs-on: ubuntu-latest
-  # This job runs when new issue is created
     name: Issue created
     if: ${{ !github.event.issue.pull_request }}
     steps:
