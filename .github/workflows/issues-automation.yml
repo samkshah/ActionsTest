@@ -1,0 +1,19 @@
+name: "Issue triage"
+on:
+  issues:
+    types: [opened,reopened]
+
+jobs:
+  issue_opened:
+    runs-on: ubuntu-latest
+  # This job runs when new issue is created
+    name: Issue created
+    if: ${{ !github.event.issue.pull_request }}
+    steps:
+      - name: Retrieve issue details
+      - run: |
+          echo ${{ github.event.issue.body }}
+          echo ---
+          echo ${{github.event.issue.labels}}
+          echo ---
+          echo ${{github.event_name}}
