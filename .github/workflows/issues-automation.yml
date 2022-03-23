@@ -10,9 +10,8 @@ jobs:
     if: ${{ !github.event.issue.pull_request }}
     steps:
       - name: Retrieve issue details
-      - run: |
-          echo ${{ github.event.issue.body }}
-          echo ---
-          echo ${{github.event.issue.labels}}
-          echo ---
-          echo ${{github.event_name}}
+      - run: echo "${{ github.event.issue.body }}"
+      - run: echo ---
+      - run: echo "${{github.event.issue.labels}}"
+      - run: echo ---
+      - run: echo "${{github.event_name}}"
