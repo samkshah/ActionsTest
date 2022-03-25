@@ -1,7 +1,12 @@
-name: "Close stale issues"
+# This workflow warns and then closes issues and PRs that have had no activity for a specified amount of time.
+#
+# You can adjust the behavior by modifying this file.
+# For more information, see:
+# https://github.com/actions/stale
+name: "Close Stale Issue/PRs"
 on:
   schedule:
-  - cron: "* * * * *"
+  - cron: "0 0 * * *"
 
 jobs:
   stale:
@@ -15,6 +20,6 @@ jobs:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-issue-message: 'This issue is stale because it has been open 45 days with no activity. A non-Author needs to comment or this will be closed in 5 days'
         exempt-issue-labels: 'development, bug'
-        days-before-issue-stale: 0
+        days-before-issue-stale: 45
         days-before-issue-close: 5
         remove-stale-when-updated: true
