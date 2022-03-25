@@ -12,14 +12,14 @@ jobs:
     permissions:
       issues: write
     steps:
-      # - name: new issue
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      #     ISSUE_URL: ${{ github.event.issue.html_url }}
-      #   run: |
-      #     gh issue edit $ISSUE_URL --add-label "triage"
+      - name: New Issue Label
+        env:
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          gh issue edit $ISSUE_URL --add-label "triage"
 
-      - name: new issue2
+      - name: New Issue Message
         uses: actions/github-script@v6
         with:
           script: |
@@ -28,7 +28,6 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: '👋 Thanks for creating issue!'
-              labels: ['triage']
             })
 
   label-added:
@@ -48,7 +47,6 @@ jobs:
         if: ${{ env.LABEL_NAME == 'help wanted' }}
         uses: actions/github-script@v6
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             github.rest.issues.createComment({
               issue_number: context.issue.number,
