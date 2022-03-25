@@ -1,32 +1,15 @@
 name: Issues triage
-on: 
+on:
   issues:
     types:
-      - "opened"
+      - opened
+
 jobs:
-  Issue-Created:
+  label_issue:
     runs-on: ubuntu-latest
     steps:
-      - run: echo "🎉 Event name - ${{ github.event_name }}."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-
-      - name: Check out repository code
-        uses: actions/checkout@v2
-
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
-      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
-      - name: List files in the repository
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
-          ls ${{ github.workspace }}
-      - run: echo "🍏 This job's status is ${{ job.status }}."
-
-      - run: echo "🚩Github details - ${{github.env}}"
-      - run: echo "Issue title - ${{ github.event.issue.title }}"
-      - run: echo "Issue body - ${{ github.event.issue.body }}"
-
-# You also can print the whole github context to the logs to view more details.
-      - name: View the github context
-        run: echo "$GITHUB_CONTEXT"
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
+          gh issue edit $ISSUE_URL --add-label "triage"
