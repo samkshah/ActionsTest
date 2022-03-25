@@ -14,10 +14,12 @@ jobs:
     steps:
       - name: New Issue Label
         env:
-          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
           gh issue edit $ISSUE_URL --add-label "triage"
+          gh issue comment $ISSUE_URL --body "Comment from Github CLI"
+
 
       - name: New Issue Message
         uses: actions/github-script@v6
