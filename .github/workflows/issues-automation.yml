@@ -7,6 +7,8 @@ on:
 jobs:
   label_issue:
     runs-on: ubuntu-latest
+    permissions:
+      issues: write
     steps:
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
