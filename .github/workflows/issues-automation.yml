@@ -12,12 +12,12 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: new issue
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
-        run: |
-          gh issue edit $ISSUE_URL --add-label "triage"
+      # - name: new issue
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     ISSUE_URL: ${{ github.event.issue.html_url }}
+      #   run: |
+      #     gh issue edit $ISSUE_URL --add-label "triage"
 
       - name: new issue2
         uses: actions/github-script@v6
@@ -28,6 +28,7 @@ jobs:
               owner: context.repo.owner,
               repo: context.repo.repo,
               body: '👋 Thanks for creating issue!'
+              labels: ['triage']
             })
 
   label-added:
@@ -42,19 +43,7 @@ jobs:
         if: ${{ env.LABEL_NAME == 'documentation' }}
         run: echo "Build and deploy site in this step..."
 
-      # - name: help wanted
-      #   if: ${{ env.LABEL_NAME == 'help wanted' }}
-      #   uses: peter-evans/create-or-update-comment@v2
-      #   with:
-      #     issue-number: ${{ github.event.issue.number }}
-      #     body: |
-      #       :heavy_exclamation_mark: We need your help with this issue. If you are interested to collaborate, please follow these steps...
-      #       - Assign this issue to yourself using 'Assignees' field on the right
-      #       - Add comments to this issue whenever you need inputs from others
-      #       - Make sure to reference this issue in your pull request. :sparkles: 
-            
-      #       :bow: Thank you for your time! :sparkles:
-            
+           
       - name: help wanted2
         if: ${{ env.LABEL_NAME == 'help wanted' }}
         uses: actions/github-script@v6
