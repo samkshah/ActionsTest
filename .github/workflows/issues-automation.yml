@@ -28,11 +28,11 @@ jobs:
       LABEL_NAME: ${{ github.event.label.name }}
     steps:
       - name: Documentation
-        if: $LABEL_NAME == 'documentation'
+        if: ${{ env.LABEL_NAME == 'documentation' }}
         run: echo "Build and deploy site in this step..."
 
       - name: Help Wanted
-        if: $LABEL_NAME == 'help wanted'
+        if: ${{ env.LABEL_NAME == 'help wanted' }}
         uses: peter-evans/create-or-update-comment@v2
         with:
           issue-number: ${{ github.event.issue.number }}
