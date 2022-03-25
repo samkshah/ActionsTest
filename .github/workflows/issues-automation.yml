@@ -5,13 +5,21 @@ on:
       - opened
 
 jobs:
-  label_issue:
+  issue-created:
     runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
-      - env:
+      - name: label-triage
+        env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
           gh issue edit $ISSUE_URL --add-label "triage"
+
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJSON(github) }}
+        run: echo "$GITHUB_CONTEXT"
+    
+
