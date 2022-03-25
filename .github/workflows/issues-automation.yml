@@ -65,7 +65,13 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'TEST'
+              body: |
+                ':heavy_exclamation_mark: We need your help with this issue. If you are interested to collaborate, please follow these steps...
+                  - Assign this issue to yourself using 'Assignees' field on the right
+                  - Add comments to this issue whenever you need inputs from others
+                  - Make sure to reference this issue in your pull request. :sparkles: 
+
+                  :bow: Thank you for your time! :sparkles:'
             })
 
   print-context:
