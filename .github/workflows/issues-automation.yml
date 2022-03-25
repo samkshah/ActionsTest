@@ -22,11 +22,25 @@ jobs:
   label-added:
     if: github.event.action == 'labeled'
     runs-on: ubuntu-latest
+    permissions: 
+      issues: write
     env:
       LABEL_NAME: ${{ github.event.label.name }}
     steps:
-      - name: Label Added
-        run: echo "$LABEL_NAME issue added"
+      - name: Documentation
+        if: LABEL_NAME == 'documentation'
+        run: echo "Build and deploy site in this step..."
+
+      - name: Help Wanted
+        if: LABEL_NAME == 'help wanted'
+        uses: peter-evans/create-or-update-comment@v2
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            :heavy_exclamation_mark: This issue is available for anyone to work on. If you are interested, please follow these steps...
+            - Assign this issue to yourself using 'Assignees' field in top right 
+            - **Make sure to reference this issue in your pull request.** :sparkles: 
+            - :bow: Thank you for your contribution! :sparkles:
 
   print-context:
     runs-on: ubuntu-latest
