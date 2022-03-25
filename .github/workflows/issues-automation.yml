@@ -24,7 +24,7 @@ jobs:
     steps:
       - name: Label Added
         env:
-          LABEL_NAME: ${{ github.event.lable.name }}
+          LABEL_NAME: ${{ github.event.label.name }}
         run: echo "$LABEL_NAME issue added"
 
   print-context:
