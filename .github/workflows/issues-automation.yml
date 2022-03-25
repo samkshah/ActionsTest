@@ -1,3 +1,5 @@
+# This workflow is used to auto-label new issues and also comments on existing labels based
+
 name: Issues triage
 on:
   issues:
@@ -16,7 +18,6 @@ jobs:
           ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
           gh issue edit $ISSUE_URL --add-label "triage"
-          gh issue comment $ISSUE_URL --body "👋 Thanks for creating issue!"
 
   label-added:
     if: github.event.action == 'labeled'
@@ -35,7 +36,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: ":heavy_exclamation_mark: We need your help with this issue. If you are interested to collaborate, please follow these steps...\n- Assign this issue to yourself using 'Assignees' field on the right\n- Add comments to this issue whenever you need inputs from others\n- Make sure to reference this issue in your pull request. :sparkles:\n\n:bow: Thank you for your time! :sparkles:"
+              body: ":wave: Hello CIR team!\n\n:heavy_exclamation_mark: We need your help with this issue. If you are interested to collaborate, please follow these steps...\n- Assign this issue to yourself using 'Assignees' field on the right\n- Add comments to this issue whenever you need inputs from others\n- Make sure to reference this issue in your pull request. :sparkles:\n\n:bow: Thank you for your time! :sparkles:"
             })
 
   print-context:
