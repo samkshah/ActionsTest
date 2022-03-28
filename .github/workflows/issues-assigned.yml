@@ -1,0 +1,23 @@
+# This action is used to manage labels on issues when assigned.
+
+name: Issue assigned
+on:
+  issues:
+    assignees:
+      - ${{ github.event.assignee.login }}
+    types: ["assigned"]
+
+jobs:
+  issue-assigned:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: assigned
+        if: ${{ github.event.issue.labels.includes('triage') }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ISSUE_URL: ${{ github.event.issue.html_url }}
+        run: |
+          gh issue edit $ISSUE_URL --remove-label "triage"
+      
