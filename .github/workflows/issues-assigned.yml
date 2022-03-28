@@ -4,7 +4,7 @@ name: Issue assigned
 on:
   issues:
     assignees:
-      - ${{ github.event.assignee.login }}
+      - ${{ github.event.issue.assignee.login }}
     types: ["assigned"]
 
 jobs:
