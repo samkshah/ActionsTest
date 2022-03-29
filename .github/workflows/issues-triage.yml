@@ -28,7 +28,10 @@ jobs:
               body: ":wave: This issue is tagged with `triage` label. It'll be automatically removed when someone is assigned to work on."
             })
   reopened-issue:
-    if: ${{github.event.action == 'reopened'}} && ${{github.event.issue.label != 'triage'}} && ${{github.event.issue.assignees.length == 0}}
+    if: |
+      ${{github.event.action == 'reopened'}} && 
+      ${{github.event.issue.label != 'triage'}} && 
+      ${{github.event.issue.assignees.length == 0}}
     runs-on: ubuntu-latest
     permissions:
       issues: write
