@@ -5,7 +5,7 @@ on:
     types: ["opened", "assigned"]
 
 jobs:
-  triage-label:
+  new-issue:
     if: ${{github.event.action == 'opened'}}
     runs-on: ubuntu-latest
     permissions:
