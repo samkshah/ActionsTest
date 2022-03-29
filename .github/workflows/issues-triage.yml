@@ -2,16 +2,17 @@
 name: Issues-Triage
 on:
   issues:
-    types: ["opened", "reopened", "assigned", "unassigned"]
+    types: ["opened", "assigned"]
 
 jobs:
   triage-label:
-    if: ${{github.event.action == 'opened'}} || ${{github.event.action == 'reopened'}}
+    if: ${{github.event.action == 'opened'}}
     runs-on: ubuntu-latest
     permissions:
       issues: write
     steps:
       - name: assignLabel
+        continue-on-error: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_URL: ${{ github.event.issue.html_url }}
@@ -28,7 +29,7 @@ jobs:
               body: ":wave: This issue is tagged with `triage` label. It'll be automatically removed when someone is assigned to work on."
             })
   issue-assigned:
-    if: ${{github.event.action == 'assigned'}} && ${{github.event.issue.label == 'triage'}}
+    if: ${{github.event.action == 'assigned'}}
     runs-on: ubuntu-latest
     permissions:
       issues: write
