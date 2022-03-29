@@ -1,0 +1,919 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Cyber Security Incident Response Team Site">
+      
+      
+      
+        <meta name="author" content="CIR Team">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.2.3, mkdocs-material-7.3.4">
+    
+    
+      
+        <title>Log Types - Cyber Security Incident Response</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.db9e7362.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.3f5d1f46.min.css">
+        
+          
+          
+          <meta name="theme-color" content="#4051b5">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../css/extra.css">
+    
+    
+      
+
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#log-types-and-content" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Cyber Security Incident Response" class="md-header__button md-logo" aria-label="Cyber Security Incident Response" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Cyber Security Incident Response
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Log Types
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        
+<a href="https://github.com/samkshah/ActionsTest/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Cyber Security Incident Response" class="md-nav__button md-logo" aria-label="Cyber Security Incident Response" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Cyber Security Incident Response
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/samkshah/ActionsTest/" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Home
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2" type="checkbox" id="__nav_2" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2">
+          Products
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Products" data-md-level="1">
+        <label class="md-nav__title" for="__nav_2">
+          <span class="md-nav__icon md-icon"></span>
+          Products
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_2_1" type="checkbox" id="__nav_2_1" checked>
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_2_1">
+          Security Analytics
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="Security Analytics" data-md-level="2">
+        <label class="md-nav__title" for="__nav_2_1">
+          <span class="md-nav__icon md-icon"></span>
+          Security Analytics
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../overview/" class="md-nav__link">
+        Overview
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../logging-standards/" class="md-nav__link">
+        Logging Standards
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Log Types
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Log Types
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#events-vs-alerts" class="md-nav__link">
+    Events vs. Alerts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-content" class="md-nav__link">
+    Log Content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-and-log-types" class="md-nav__link">
+    Scope and Log Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Scope and Log Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operating-system-security-logs" class="md-nav__link">
+    Operating System Security Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-data-lake-security-logs" class="md-nav__link">
+    Database / Data Lake Security Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-devices-security-logs" class="md-nav__link">
+    Infrastructure Devices Security Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-security-logs" class="md-nav__link">
+    Cloud Security Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-security-logs" class="md-nav__link">
+    Application Security Logs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../processes/" class="md-nav__link">
+        Processes and Procedures
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-integration-patterns/" class="md-nav__link">
+        Log Integration Patterns
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../log-examples/" class="md-nav__link">
+        Log Examples
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EDR-EPP/about/" class="md-nav__link">
+        EPP/EDR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EmailSecurity/about/" class="md-nav__link">
+        Email Security
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../SOAR/about/" class="md-nav__link">
+        SOAR
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../AET/about/" class="md-nav__link">
+        Adversary Emulation
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
+      
+      
+      
+      
+        <label class="md-nav__link" for="__nav_3">
+          References
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <nav class="md-nav" aria-label="References" data-md-level="1">
+        <label class="md-nav__title" for="__nav_3">
+          <span class="md-nav__icon md-icon"></span>
+          References
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/faq/" class="md-nav__link">
+        FAQs
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../References/detection-prioritization/" class="md-nav__link">
+        Detection Prioritization
+      </a>
+    </li>
+  
+
+            
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../about-cir/" class="md-nav__link">
+        About CIR
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#events-vs-alerts" class="md-nav__link">
+    Events vs. Alerts
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#log-content" class="md-nav__link">
+    Log Content
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#scope-and-log-types" class="md-nav__link">
+    Scope and Log Types
+  </a>
+  
+    <nav class="md-nav" aria-label="Scope and Log Types">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#operating-system-security-logs" class="md-nav__link">
+    Operating System Security Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-data-lake-security-logs" class="md-nav__link">
+    Database / Data Lake Security Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infrastructure-devices-security-logs" class="md-nav__link">
+    Infrastructure Devices Security Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cloud-security-logs" class="md-nav__link">
+    Cloud Security Logs
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#application-security-logs" class="md-nav__link">
+    Application Security Logs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content" data-md-component="content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/samkshah/ActionsTest/edit/main/docs/SecAnalytics/log-types.md" title="Edit this page" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="log-types-and-content">Log Types and Content</h1>
+<p>This page provides information about what types of logs should be captured from various systems and applications.  </p>
+<h2 id="events-vs-alerts">Events vs. Alerts</h2>
+<p>A cybersecurity <strong>event</strong> is an event of interest signifying interaction with our systems, processes, environments, or workflows which can result in positive or negative impact to our organization.</p>
+<p>An <strong>alert</strong> is a notification of a malicious cybersecurity event(s), resulting in incident response. <strong>Events</strong> are informative while <strong>Alerts</strong> are actionable. </p>
+<p>Our Security Analytics platform (SA) solution (Securonix) uses various detections and threat models, a sequence of detected activity, to identify policy violations and potential threats. When a violation or potential threat is recognized, the SA platform then ties the event back to the entity from which the violations originated.</p>
+<h2 id="log-content">Log Content</h2>
+<p>At a minimum, logs should contain the following information. Overall content and format may defer for each system, platform, or application.  </p>
+<ol>
+<li><strong>Who</strong>: Actor - Who performed the activity, such as user account, service account, email address, full name, user name, or any HR identifiable attribute that helps to understand who performed this activity. Also Unique Device Identifier, Session Identifier, Unique Access Code (UAC), etc. will be required where applicable.​  </li>
+<li><strong>What</strong>: Activity - What was the activity and the outcome, such as login attempt with success or failed, protected documents or configurations accessed / deleted / modified / etc.​  </li>
+<li><strong>When</strong>: Timestamp - When was the activity performed? This must include date and time.  </li>
+<li><strong>Where</strong>: IP address -  Origin and destination address. Where the activity originated from and where it was sent are very important in investigations.</li>
+</ol>
+<p><em>Additional requirements for PCI / HIPAA applications:</em></p>
+<ol>
+<li>Audit Logs <ul>
+<li>Access requests on PCI/HIPAA relevant data set</li>
+</ul>
+</li>
+<li>Transactional Security Logs<ul>
+<li>Activities performed on PCI/HIPAA data<ul>
+<li>Example: Deletion and updating records</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<p><em>Following logs are also helpful from business facing applications​:</em></p>
+<ol>
+<li>​Audit Logs<ul>
+<li>Activities performed on customer entities <ul>
+<li>Example: Changes performed by AA res agents to customer bookings​</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Transactional Security Logs<ul>
+<li>Customer or employee facing transactional logs <ul>
+<li>Example: PNR bookings, itinerary related information, boarding pass scanning, customer logins to mobile and web apps, etc.​  </li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<div class="admonition warning">
+<p class="admonition-title">Note</p>
+<p>Sensitive PCI and PII data such as full payment card numbers, authorization codes, birth dates, etc. must not be logged within security events.  </p>
+</div>
+<h2 id="scope-and-log-types">Scope and Log Types</h2>
+<h3 id="operating-system-security-logs">Operating System Security Logs</h3>
+<p>If applications have 3 tier model, where they have traditional VMs in Data Center(s) or in cloud IaaS environments, following types of audit logs are in scope at a minimum. All these logs must have descriptions, error codes, reason of failures, etc. in as much details as possible.</p>
+<ul>
+<li>Windows / Unix Audit logs​</li>
+<li>Login Success / Failures​</li>
+<li>Privileged Access / Escalation Logs​</li>
+<li>Remote access logs</li>
+<li>Activity logs for privileged users​</li>
+<li>Account level auditing (e.g. Create, Update, Delete) for sensitive accounts​</li>
+</ul>
+<h3 id="database-data-lake-security-logs">Database / Data Lake Security Logs</h3>
+<ul>
+<li>Audit Logs:<ul>
+<li>Login Success / Failures​</li>
+<li>Privileged Access / Escalation Logs​</li>
+<li>SA accounts access and activity​</li>
+<li>Access logs for critical tables / columns, example: user accessing “PCI or HIPAA sensitive data” in bulk​</li>
+<li>Account level auditing (e.g. Create, Update, Delete) for database accounts​  </li>
+</ul>
+</li>
+<li>Transactional Security Logs:<ul>
+<li>Access to sensitive records, such as employee and customer PII data</li>
+</ul>
+</li>
+</ul>
+<h3 id="infrastructure-devices-security-logs">Infrastructure Devices Security Logs</h3>
+<ul>
+<li>Audit Logs<ul>
+<li>Access and activity logs for application/platform owners​</li>
+</ul>
+</li>
+<li>Transactional Security Logs:<ul>
+<li>Traffic passing through network devices, such as traffic that was allowed or denied​</li>
+</ul>
+</li>
+</ul>
+<h3 id="cloud-security-logs">Cloud Security Logs</h3>
+<ul>
+<li>Cloud Platform Audit Logs<ul>
+<li>All activity performed by developers or application administrators in cloud platform, such as IBM cloud portal or Azure portal​</li>
+<li>These are CRUD (Create, Read, Update and Delete) records around cloud resources, such as subscriptions, resource groups, virtual machines, keys, global policies, etc.</li>
+<li>Cloud platform authentication and authorization logs​</li>
+<li>Privileged escalation at the cloud platform level​</li>
+<li>Console logins, such as IBM CLI or Azure CLI​</li>
+</ul>
+</li>
+<li>Cloud Service Audit Logs<ul>
+<li>These are CRUD records around cloud services, such as functions, key vaults, storage accounts, AKS (Azure Kubernetes Service), IKS (IBM Kubernetes Service), ADX (Azure Data Explorer), etc.</li>
+</ul>
+</li>
+<li>SaaS Applications Audit Logs<ul>
+<li>These are CRUD records for applications hosted in external cloud environments, or 3rd party apps, such as o365, Akamai, Outlook, Orion Data lake, etc.</li>
+</ul>
+</li>
+</ul>
+<h3 id="application-security-logs">Application Security Logs</h3>
+<p>For applications audit logs, following at-a-minimum is in scope. This applies to all applications irrespective of where they are hosted or type of applications.</p>
+<ul>
+<li>Audit Logs:<ul>
+<li>Application critical errors /audit Logs​</li>
+<li>Login Success / Failures​</li>
+<li>Privileged Access / Escalations Logs​</li>
+<li>Activity logs for privileged users​</li>
+<li>Security alerts / notifications relevant to applications​</li>
+<li>Account level auditing (e.g. Create, Update, Delete) for sensitive accounts​</li>
+<li>Application mis-use logs​</li>
+</ul>
+</li>
+<li>Transactional Security Logs:<ul>
+<li>Application consumer connectivity<ol>
+<li>Users or applications connecting to web services or other applications </li>
+<li>User's actions within the application</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+        
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <nav class="md-footer__inner md-grid" aria-label="Footer">
+      
+        
+        <a href="../logging-standards/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Logging Standards" rel="prev">
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+          </div>
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              Logging Standards
+            </div>
+          </div>
+        </a>
+      
+      
+        
+        <a href="../processes/" class="md-footer__link md-footer__link--next" aria-label="Next: Processes and Procedures" rel="next">
+          <div class="md-footer__title">
+            <div class="md-ellipsis">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              Processes and Procedures
+            </div>
+          </div>
+          <div class="md-footer__button md-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+          </div>
+        </a>
+      
+    </nav>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        
+          Made with
+          <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+            Material for MkDocs
+          </a>
+        
+        
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.8397ff9e.min.js", "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e84347e.min.js"></script>
+      
+    
+  </body>
+</html>

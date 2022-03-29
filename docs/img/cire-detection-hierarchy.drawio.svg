@@ -1,0 +1,85 @@
+<svg host="65bd71144e" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="452px" height="302px" viewBox="-0.5 -0.5 452 302" content="&lt;mxfile&gt;&lt;diagram id=&quot;UZnd6jXRQJec7D8oGpHg&quot; name=&quot;Page-1&quot;&gt;7Zddb5swFIZ/TS6LMDYfuWxout1MqpqLXbvggFUHM2OWdL9+x2AHCIm2qlk7aXMkAu/x13nPg5UscLo7fFK0Lr/InIlF4OeHBb5bBAFCSx++jPLSK1EU9kKheG47DcKG/2BWtOOKluesmXTUUgrN66mYyapimZ5oVCm5n3bbSjFdtaYFmwmbjIq5+pXnunR5+f4Q+Mx4Udqlk9AGdtR1tkJT0lzuRxJeL3CqpNT93e6QMmHMc7704+4vRI8bU6zSvzOA9AO+U9Ha3Oy+9ItLVitOq8I8rfYl12xT08yE9lBb0Eq9E/CE4FZJTTWXFTzeQInxasuFSKWQqpsJJ+vbeEVAb7SSz8xFKlmZye1OmNLscDEbdPQI4GJyx7R6gS52AA4iDxMfJyRCobn2E1jKgsT3fB+PWh/eDyXEroLlqHrEVY9abIrjwoOzcGPNPW908J5G+36cpOtLRtOm7l+KLT+w/ErOx8Z5ZztcycR67BNvuQyHRmbWB+esP9bjLdbj97Q+Qqvb+/QPMk4M4zg5Io7w1OlgCU7HQ5s7jc45ja4BeXLG6Uho40ZNK7gvdGdCr20lZDwuQ/StlS5w03Sn/i10QKQ+DMHTWZ6ckMpdLaCMUDjIosrhumFZq7g27j3IRreKuVGQydPpTKD1W5rJ092fsKNkW+XmPer4+AU+J7RsQ/OxKY90ezzhVSFoYwriXyJKwlImQ3wXh9cBLIj8CVFhjDw0bnOgEmCOjJAM53yFyIsmjbwdt+VH4rYSNHs2jO27pf5T9TqqSBR7o1MqTv4aqhzgZ7C6MkIPSuZtZmZ85M2zO7VsJ+V63T1CJIVjjMMP0O4wewVs/xhVOCIeGbfoo7CCx+FXfBcb/RfC658=&lt;/diagram&gt;&lt;/mxfile&gt;">
+    <defs/>
+    <g>
+        <path d="M 75.34 -75 L 375.34 150 L 75.34 375 Z" fill="#8ea7b4" stroke="none" transform="rotate(-90,225.34,150)" pointer-events="all"/>
+        <path d="M 125.34 -50 L 325.34 100 L 125.34 250 Z" fill="#0078ce" stroke="none" transform="rotate(-90,225.34,100)" pointer-events="all"/>
+        <path d="M 175.34 -25 L 275.34 50 L 175.34 125 Z" fill="#61bafc" stroke="none" transform="rotate(-90,225.34,50)" pointer-events="all"/>
+        <rect x="9" y="216.11" width="189.95" height="51.67" rx="7.75" ry="7.75" fill-opacity="0.75" fill="#f5f5f5" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 242px; margin-left: 10px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <span>
+                                    <font style="font-size: 14px">
+                                        <b>
+                                            Compliance and Security Posture
+                                        </b>
+                                    </font>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="104" y="246" fill="#333333" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    Compliance and Security Posture
+                </text>
+            </switch>
+        </g>
+        <rect x="9" y="112.78" width="189.95" height="51.67" rx="7.75" ry="7.75" fill-opacity="0.75" fill="#f5f5f5" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 139px; margin-left: 10px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <span>
+                                    <font style="font-size: 14px">
+                                        <b>
+                                            Black Swan
+                                        </b>
+                                    </font>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="104" y="142" fill="#333333" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    Black Swan
+                </text>
+            </switch>
+        </g>
+        <rect x="9" y="9.44" width="189.95" height="51.67" rx="7.75" ry="7.75" fill-opacity="0.75" fill="#f5f5f5" stroke="none" pointer-events="all"/>
+        <g transform="translate(-0.5 -0.5)">
+            <switch>
+                <foreignObject style="overflow: visible; text-align: left;" pointer-events="none" width="100%" height="100%" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="display: flex; align-items: unsafe center; justify-content: unsafe center; width: 188px; height: 1px; padding-top: 35px; margin-left: 10px;">
+                        <div style="box-sizing: border-box; font-size: 0; text-align: center; ">
+                            <div style="display: inline-block; font-size: 12px; font-family: Helvetica; color: #333333; line-height: 1.2; pointer-events: all; white-space: normal; word-wrap: normal; ">
+                                <font style="font-size: 14px">
+                                    <b>
+                                        Product Risk and
+                                        <br/>
+                                        DR Criticality
+                                    </b>
+                                </font>
+                            </div>
+                        </div>
+                    </div>
+                </foreignObject>
+                <text x="104" y="39" fill="#333333" font-family="Helvetica" font-size="12px" text-anchor="middle">
+                    Product Risk and...
+                </text>
+            </switch>
+        </g>
+    </g>
+    <switch>
+        <g requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility"/>
+        <a transform="translate(0,-5)" xlink:href="https://www.diagrams.net/doc/faq/svg-export-text-problems" target="_blank">
+            <text text-anchor="middle" font-size="10px" x="50%" y="100%">
+                Viewer does not support full SVG 1.1
+            </text>
+        </a>
+    </switch>
+</svg>
