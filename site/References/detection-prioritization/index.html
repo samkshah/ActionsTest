@@ -805,13 +805,13 @@
 <p>The Cybersecurity Incident Response Detection Prioritization document captures the rationale and strategy behind the program’s detections. This is done via agent instrumentation and the capture of system, platform, and application logs. This document includes material loss scenarios and compliance standards that prioritize the instrumentation of systems. This document represents the agreed upon and approved standard in which American Airlines’ products are prioritized for detections. The expectation is that information in this document will evolve over time. The Cybersecurity Incident Response team handles updating this document with the adoption of new organizational security standards and policies. Revisions to this document must be clearly communicated in its revision history.</p>
 <h2 id="product-prioritization">Product Prioritization</h2>
 <h3 id="compliance-and-security-posture">Compliance and Security Posture</h3>
-<p>Product driven detection priorities are dictated by the level at which it would increase our maturity and security posture. This should be interpreted as a hierarchy of needs. At a minimum, we must meet mandated compliance and increases in our security effectiveness are “nice to have” detections. </p>
-<p><img alt="prioritization" src="../../img/cstrm-prioritization.drawio.svg" />
-<em>Figure 1: CIRE prioritizes tactically from left to right; mandated compliance to best practices</em></p>
+<p>Product driven detection priorities are dictated by the level at which it would increase our maturity and security posture. This should be interpreted as a hierarchy of needs. At a minimum, we must meet mandated compliance and increases in our security effectiveness are “nice to have” detections.</p>
+<p><img alt="prioritization" src="../../img/cstrm-prioritization.drawio.svg" /><br />
+<em>Figure 1: CIRE prioritizes tactically from left to right; mandated compliance to best practices</em>  </p>
 <h3 id="black-swans">Black Swans</h3>
 <p>There are 4 material loss scenarios that motivate our security and resiliency strategies. In the event of any of these, American stands to lose upwards of $100M within a 6-hour time-frame. These damages encompass wide spread negative media coverage, both domestic and international, as well as massive fines. Efforts to detect the early onset of Black Swans along with compliance are CIR’s top priority.</p>
-<p><img alt="Black Swans" src="../../img/cstrm-blackswan.drawio.svg" />
-<em>Figure 2: Material loss scenarios (Black Swans)</em></p>
+<p><img alt="Black Swans" src="../../img/cstrm-blackswan.drawio.svg" /><br />
+<em>Figure 2: Material loss scenarios (Black Swans)</em>  </p>
 <h3 id="risk-and-dr-criticality">Risk and DR Criticality</h3>
 <p>Product risk is an indicator of how long it would take for American to suffer damages when outages or compromise occurs within a given product. Risk associated with disruption to a product varies depending on the core business function it aligns with. The following lists American’s primary business functions and how long it would take for a production outage to significantly impact operations in order of priority:  </p>
 <ul>
@@ -829,28 +829,28 @@
 </li>
 </ul>
 <p>Criticality can be used as a crude temperature gauge to measure the importance of a product to American’s operations. To be clear, its primary function is to communicate the criticality for disaster recovery of the product. Some systems have low criticality while still performing a significant role in other system architectures that are of a higher criticality. Consideration is given to systems that fall under this category, but in general vital and critical systems trump important and discretionary.</p>
-<p><img alt="DR Criticality" src="../../img/cstrm-dr-criticality.drawio.svg" />
-<em>Figure 3: Product priority based on risk to business from right to left; prioritization based on DR criticality from top to bottom</em></p>
+<p><img alt="DR Criticality" src="../../img/cstrm-dr-criticality.drawio.svg" /><br />
+<em>Figure 3: Product priority based on risk to business from right to left; prioritization based on DR criticality from top to bottom</em>  </p>
 <h2 id="instrumentation-strategy">Instrumentation Strategy</h2>
 <h3 id="endpoint-detection-and-response">Endpoint Detection and Response</h3>
 <p>EDR as a detection method is reserved for Linux and Windows operating systems. The EDR service is a form of instrumentation on the host system. Deployed as an agent, EDR monitors running processes/binaries as well as network activity on the host and forwards the information to a centralized aggregation site. There, the events are analyzed for suspicious activity and actionable alerts are generated for the purpose of response. EDR Agents can be deployed on servers, desktops, and within containers. This is our easiest detection strategy to deploy and as such is prioritized over logging strategies.</p>
-<p><img alt="EDR Instrumentation" src="../../img/cire-edr-agent-conceptual.drawio.svg" />
-<em>Figure 4: Instrumentation using Endpoint agents</em></p>
+<p><img alt="EDR Instrumentation" src="../../img/cire-edr-agent-conceptual.drawio.svg" /><br />
+<em>Figure 4: Instrumentation using Endpoint agents</em>  </p>
 <h3 id="security-analytics-platform">Security Analytics Platform</h3>
 <p>The SA platform serves as the CIR security data lake. Security logs, threat intel, asset information, and other data are aggregated in this platform so that analytics strategies can be leveraged to detect suspicious/anomalous behavior in our network. There are two main methods for collecting systems’ logs for this service.  </p>
 <h4 id="agent-based-log-collection">Agent Based Log Collection</h4>
 <p>Like Endpoint agent, SA agents are deployed to the host system to collect logs and forward them to the SA platform. The SA agent can be used to filter and transform logs, thus making it versatile when handling logs in various formats as well as forwarding only security relevant logs to the SA platform. However, this is a more involved deployment process over the Endpoint agent and thus takes more planning from CIR. Agents are supported on Windows and Linux operating systems. Deployments are performed on servers, kiosks, and Kubernetes clusters using a sidecar pattern.</p>
-<p><img alt="SA Instrumentation" src="../../img/cire-sa-agent-conceptual.drawio.svg" />
-<em>Figure 5: Log capture using SA agents</em></p>
+<p><img alt="SA Instrumentation" src="../../img/cire-sa-agent-conceptual.drawio.svg" /><br />
+<em>Figure 5: Log capture using SA agents</em>  </p>
 <h4 id="remote-logging">Remote Logging</h4>
 <p>There are scenarios in which the installation of a logging agent isn’t possible. Given these constraints, systems and applications can be configured to log remotely to the SA platform. This process is the most demanding as it typically involves a logging change on the host operating system, platform, container, or application. These tend to be more strategic efforts that require coordination with the owner of the subject system and CIR to ensure the correct logs are being forwarded to the SA platform in an acceptable format.</p>
-<p><img alt="Remote Logging" src="../../img/cire-sa-logging-conceptual.drawio.svg" />
+<p><img alt="Remote Logging" src="../../img/cire-sa-logging-conceptual.drawio.svg" /><br />
 <em>Figure 6: Logging directly to SA via remote logging</em></p>
 <h2 id="prioritization-by-detection-method">Prioritization by Detection Method</h2>
 <h3 id="ordering-product-prioritization">Ordering Product Prioritization</h3>
 <p>Using the information detailing Product Prioritization, CIR tactically targets systems for instrumentation. To hit the bare minimum, CIR prioritizes compliance and security posture first when deploying detections. Priority follows up the chain as depicted in Figure 7.</p>
-<p><img alt="Detection Prioritization" src="../../img/cire-detection-hierarchy.drawio.svg" />
-<em>Figure 7: Our prioritization strategy is built upon each category with those at the bottom being fundamental to those at the top</em></p>
+<p><img alt="Detection Prioritization" src="../../img/cire-detection-hierarchy.drawio.svg" /><br />
+<em>Figure 7: Our prioritization strategy is built upon each category with those at the bottom being fundamental to those at the top</em>  </p>
 <h3 id="system-logging-levels">System Logging Levels</h3>
 <p>Within each category, CIR further prioritizes detection based on how quickly detections can be put in place. The tactical speed of instrumenting systems is described in the earlier sections of this process document. Apart from EDR, logging is prioritized by the following categories:  </p>
 <ul>
@@ -864,7 +864,7 @@
 <p><strong>Container</strong> - Little variance in configuration, little impact given AA presence in the cloud  </p>
 </li>
 <li>
-<p><strong>Application</strong> - High variance in logging configuration, format, and content. These are strictly strategic efforts that require thorough planning form application owners and CIR. </p>
+<p><strong>Application</strong> - High variance in logging configuration, format, and content. These are strictly strategic efforts that require thorough planning form application owners and CIR.</p>
 </li>
 </ul>
                 

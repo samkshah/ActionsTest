@@ -8,25 +8,37 @@ repo_url: https://github.com/samkshah/ActionsTest
 edit_uri: edit/main/docs/
 docs_dir: docs/
 
-# Configuration
+# Theme Configuration
 theme:
   name: material  
   palette:
     scheme: default
     primary: indigo
     accent: indigo
-  custom_dir: themes/
+  custom_dir: custom_theme/
   site_dir: site/
   prev_next_button_location: both
   
 # Customization
 extra_css:
   - css/extra.css
-
 markdown_extensions:
     - admonition
     - attr_list
-
+    - meta
+    - abbr
+    - pymdownx.snippets
+    - pymdownx.details
+    - pymdownx.highlight:
+        anchor_linenums: true
+        auto_title: true
+        linenums: true
+        linenums_style: pymdownx-inline
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+    
 # Page tree
 nav:
   - Home: 'index.md'
