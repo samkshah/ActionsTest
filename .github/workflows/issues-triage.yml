@@ -7,8 +7,8 @@ on:
 jobs:
   new-issue:
     if: |
-      (github.event.issue.type == 'opened' || github.event.issue.type == 'reopened') &&
-      github.event.issue.assignees.length == 0
+      (${{github.event.issue.type == 'opened'}} || ${{github.event.issue.type == 'reopened'}}) &&
+      ${{github.event.issue.assignees.length == 0}}
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -55,7 +55,7 @@ jobs:
           ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
           gh issue edit $ISSUE_URL --add-label "triage"
-          
+
   print-context:
       runs-on: ubuntu-latest
       steps:
