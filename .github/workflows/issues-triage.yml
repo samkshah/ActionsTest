@@ -2,13 +2,11 @@
 name: Issues-Triage
 on:
   issues:
-    types: ["opened", "reopened", "assigned"]
+    types: ["opened", "reopened", "assigned", "unassigned"]
 
 jobs:
   new-issue:
-    if: |
-      (${{github.event.issue.type == 'opened'}} || ${{github.event.issue.type == 'reopened'}}) &&
-      ${{github.event.issue.assignees.length == 0}}
+    if: ${{github.event.issue.type == 'opened'}}
     runs-on: ubuntu-latest
     permissions:
       issues: write
