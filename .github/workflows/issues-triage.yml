@@ -6,7 +6,9 @@ on:
 
 jobs:
   new-issue:
-    if: (${{ github.event.issue.type == 'opened'}} || ${{ github.event.issue.type == 'reopened'}}) && ${{ github.event.issue.assignees.length == 0 }}
+    if: |
+      (github.event.issue.type == 'opened' || github.event.issue.type == 'reopened') &&
+      github.event.issue.assignees.length == 0
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -28,7 +30,7 @@ jobs:
               body: ":wave: This issue is tagged with 'triage' label. It'll be automatically removed when someone is assigned to work on."
             })
   issue-assigned:
-    if: ${{ github.event.issue.type == 'assigned' }}
+    if: github.event.issue.type == 'assigned'
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -40,7 +42,9 @@ jobs:
         run: |
           gh issue edit $ISSUE_URL --remove-label "triage"
   issue-unassigned:
-    if: ${{ github.event.issue.type == 'unassigned' }} && ${{ github.event.issue.assignees.length == 0 }} 
+    if: |
+      github.event.issue.type == 'unassigned' &&
+      github.event.issue.assignees.length == 0
     runs-on: ubuntu-latest
     permissions:
       issues: write
@@ -51,4 +55,16 @@ jobs:
           ISSUE_URL: ${{ github.event.issue.html_url }}
         run: |
           gh issue edit $ISSUE_URL --add-label "triage"
-      
+          
+  print-context:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Show event context
+          env: 
+            EVENT_CONTEXT: ${{ toJSON(github.event)}}
+          run: echo "$EVENT_CONTEXT"
+
+        - name: Dump GitHub context
+          env:
+            GITHUB_CONTEXT: ${{ toJSON(github) }}
+          run: echo "$GITHUB_CONTEXT"
