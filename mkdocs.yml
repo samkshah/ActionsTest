@@ -50,6 +50,7 @@ nav:
         - Processes and Procedures: SecAnalytics/processes.md
         - Log Integration Patterns: SecAnalytics/log-integration-patterns.md
         - Log Examples: SecAnalytics/log-examples.md
+        - Log Analysis: SecAnalytics/log-analysis.md
     - EPP/EDR: EDR-EPP/about.md
     - Email Security: EmailSecurity/about.md
     - SOAR: SOAR/about.md
