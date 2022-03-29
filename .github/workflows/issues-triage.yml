@@ -27,30 +27,6 @@ jobs:
               repo: context.repo.repo,
               body: ":wave: This issue is tagged with `triage` label. It'll be automatically removed when someone is assigned to work on."
             })
-  issue-assigned:
-    if: ${{github.event.issue.type == 'assigned'}} && ${{github.event.issue.label == 'triage'}}
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-    steps:
-      - name: removeLabel
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
-        run: |
-          gh issue edit $ISSUE_URL --remove-label "triage"
-  issue-unassigned:
-    if: ${{github.event.issue.type == 'unassigned'}} && ${{github.event.issue.assignees.length == 0}}
-    runs-on: ubuntu-latest
-    permissions:
-      issues: write
-    steps:
-      - name: addLabel
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ISSUE_URL: ${{ github.event.issue.html_url }}
-        run: |
-          gh issue edit $ISSUE_URL --add-label "triage"
 
   print-context:
       runs-on: ubuntu-latest
