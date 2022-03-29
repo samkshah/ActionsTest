@@ -6,7 +6,7 @@ on:
 
 jobs:
   new-issue:
-    if: ${{github.event.issue.type == 'opened'}}
+    if: ${{github.event.action == 'opened'}}
     runs-on: ubuntu-latest
     permissions:
       issues: write
