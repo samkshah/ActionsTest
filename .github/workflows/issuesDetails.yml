@@ -9,7 +9,6 @@ on:
     types: [opened,edited]
 
 jobs:
-
   createIncident-NonProd:
     # if: github.event.issue.type == 'opened'
     runs-on: ubuntu-latest
@@ -33,9 +32,9 @@ jobs:
         with:
           github-token: ${{secrets.GITHUB_TOKEN}}
           script: |
-            const regex-username = /username[^\d]+(\d+)/;
-            const body = github.context.payload.issue.body;
-            const matchUserName = body.match (regex-username);
+            regex-username = /username[^\d]+(\d+)/;
+            body = github.context.payload.issue.body;
+            matchUserName = body.match (regex-username);
             if (matchUserName) {
               console.log(`::set-output name=issueUserName::${matchUserName[1]}`);
             }
