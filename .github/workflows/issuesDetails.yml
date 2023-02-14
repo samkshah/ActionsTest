@@ -8,7 +8,7 @@ on:
 
 jobs:
   createIncident:
-    if: github.event.comment.body == '/createIncident'
+    if: github.event.comment.body == '/createIncident-NonProd'
     runs-on: ubuntu-latest
     env:
       issueNumber: ${{github.event.issue.number}}
