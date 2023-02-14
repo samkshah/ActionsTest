@@ -9,15 +9,13 @@ on:
 jobs:
   getIssueDetails:
     runs-on: ubuntu-latest
+    env:
+        issueNumber = ${{github.event.issue.number}}"
+        issueTitle = ${{github.event.issue.title}}"
+        issueBody = ${{github.event.issue.body}}"
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
-      - name: Echo Details
-        run: |
-          issueNumber = ${{github.event.issue.number}}"
-          issueTitle = ${{github.event.issue.title}}"
-          issueBody = ${{github.event.issue.body}}"
 
       - name: echo Details
         run: |
