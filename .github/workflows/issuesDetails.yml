@@ -60,41 +60,8 @@ jobs:
             const issueAssigneeStarredURL = issue.assignee.starred_url
             const issueAssigneeSubscriptionsURL = issue.assignee.subscriptions_url
             const issue
-      - name: Create Issue Data File
-        uses: peter-evans/create-or-update-file@v1
-        with:
-          path: issue-data/${{ github.event.issue.number }}.json
-          message: Create Issue Data File
-          content: |
-            {
-              "issueNumber": "${{ github.event.issue.number }}",
-              "issueTitle": "${{ github.event.issue.title }}",
-              "issueBody": "${{ github.event.issue.body }}",
-              "issueState": "${{ github.event.issue.state }}",
-              "issueLabels": "${{ github.event.issue.labels }}",
-              "issueAssignees": "${{ github.event.issue.assignees }}",
-              "issueMilestone": "${{ github.event.issue.milestone }}",
-              "issueCreatedAt": "${{ github.event.issue.created_at }}",
-              "issueUpdatedAt": "${{ github.event.issue.updated_at }}",
-              "issueClosedAt": "${{ github.event.issue.closed_at }}",
-              "issueAuthor": "${{ github.event.issue.user.login }}",
-              "issueAuthorAssociation": "${{ github.event.issue.author_association }}",
-              "issueComments": "${{ github.event.issue.comments }}",
-              "issueReactions": "${{ github.event.issue.reactions }}",
-              "issueLocked": "${{ github.event.issue.locked }}",
-              "issueActiveLockReason": "${{ github.event.issue.active_lock_reason }}",
-              "issuePullRequest": "${{ github.event.issue.pull_request }}",
-              "issueLinks": "${{ github.event.issue.html_url }}",
-              "issueNodeID": "${{ github.event.issue.node_id }}",
-              "issueURL": "${{ github.event.issue.url }}",
-              "issueEventsURL": "${{ github.event.issue.events_url }}",
-              "issueCommentsURL": "${{ github.event.issue.comments_url }}",
-              "issueReactionsURL": "${{ github.event.issue.reactions_url }}",
-              "issueLabelsURL": "${{ github.event.issue.labels_url }}",
-              "issueAssigneesURL": "${{ github.event.issue.assignees_url }}",
-              "issueTimelineURL": "${{ github.event.issue.timeline_url }}",
-              "issueLockedURL": "${{ github.event.issue.lock_url }}",
-              "issueAssignee": "${{ github.event.issue.assignee }}",
-              "issueAssigneeLogin": "${{ github.event.issue.assignee.login }}",
-              "issueAssigneeID": "${{ github.event.issue.assignee.id }}",
-              "issueAssignee
+      - name: Echo Details
+        run: |
+          echo "Issue Number: ${{env.ISSUE_NUMBER}}"
+          echo "Issue Title: ${{env.ISSUE_TITLE}}"
+          echo "Issue Body: ${{env.ISSUE_BODY}}"
