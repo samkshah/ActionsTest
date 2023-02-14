@@ -15,9 +15,9 @@ jobs:
 
       - name: Echo Details
         run: |
-          const issueNumber = ${{github.event.issue.number}}"
-          echo issueTitle = ${{github.event.issue.title}}"
-          echo issueBody = ${{github.event.issue.body}}"
+          issueNumber = ${{github.event.issue.number}}"
+          issueTitle = ${{github.event.issue.title}}"
+          issueBody = ${{github.event.issue.body}}"
 
       - name: echo Details
         run: |
