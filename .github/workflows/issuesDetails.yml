@@ -1,13 +1,14 @@
 # Create github workflow file to get issue data
 
-name: Get Issue Data
+name: Create Incident
 
 on:
-  issues:
-    types: [opened, edited, closed, reopened, labeled, unlabeled]
+  issue_comment:
+    types: [created,edited]
 
 jobs:
-  getIssueDetails:
+  createIncident:
+    if: github.event.comment.body == '/createIncident'
     runs-on: ubuntu-latest
     env:
       issueNumber: ${{github.event.issue.number}}
