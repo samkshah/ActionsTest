@@ -23,10 +23,9 @@ jobs:
         id: extract_username
         if: ${{github.event.issue.body}} contains 'username' && ${{github.event.issue.body}} contains '\d{6}'
         run: |
-          issueUserName=`echo ${{github.event.issue.body}} | grep -oP '(?<=username: )\d+'`
-          echo $issueUserName
+          echo "issueUserName=${{github.event.issue.body}} | grep -oP '(?<=username: )\d+'" >> $GITHUB_OUTPUT
       #     echo "issueUserName=$issueUserName" >> $GITHUB_OUTPUT
 
-      # - name: Echo issueUserName
-      #   run: |
-      #     echo "UserName is: ${{steps.extract_username.outputs.issueUserName}}"
+      - name: Echo issueUserName
+        run: |
+          echo "UserName is: ${{steps.extract_username.outputs.issueUserName}}"
