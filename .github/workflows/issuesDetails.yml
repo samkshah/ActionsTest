@@ -19,17 +19,8 @@ jobs:
       issueTitle: ${{github.event.issue.title}}
       issueBody: ${{github.event.issue.body}}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: echo Details
-        run: |
-          echo $issueNumber
-          echo $issueTitle
-          echo $issueBody
       - name: Extract part from issue body
         id: extract_username
+        if: issueBody contains 'username' && issueBody contains '\d{6}'
         run: |
-          issueUserName=$(echo $issueBody | grep -Eo 'username[^\d]+(\d+)' | head -n1)
-          run: echo "{name}={value}" >> $GITHUB_OUTPUT
-          echo $issueUserName
-          echo $GITHUB_OUTPUT
+          echo $issueBody | grep -oP '(?<=username: ).*(?=\n)'
