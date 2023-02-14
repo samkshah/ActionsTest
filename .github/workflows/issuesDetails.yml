@@ -11,7 +11,7 @@ on:
 
 jobs:
   getIssueDetails:
-    if: github.event.issue.type == 'opened'
+    # if: github.event.issue.type == 'opened'
     runs-on: ubuntu-latest
     env:
       issueNumber: ${{github.event.issue.number}}
@@ -27,6 +27,8 @@ jobs:
 
       - name: Echo issueUserName
         run: |
+          echo ${{github.event.issue.type}}
+          echo "---------------"
           echo "UserName is: ${{steps.extract_username.outputs.inc_userName}}"
 
       - name: Add issue comments
