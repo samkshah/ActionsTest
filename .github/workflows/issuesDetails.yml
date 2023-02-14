@@ -21,6 +21,23 @@ jobs:
       issueTitle: ${{github.event.issue.title}}
       issueBody: ${{github.event.issue.body}}
     steps:
+  dump_contexts_to_log:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dump GitHub context
+        id: github_context_step
+        run: echo '${{ toJSON(github) }}'
+      - name: Dump job context
+        run: echo '${{ toJSON(job) }}'
+      - name: Dump steps context
+        run: echo '${{ toJSON(steps) }}'
+      - name: Dump runner context
+        run: echo '${{ toJSON(runner) }}'
+      - name: Dump strategy context
+        run: echo '${{ toJSON(strategy) }}'
+      - name: Dump matrix context
+        run: echo '${{ toJSON(matrix) }}'
+
       - name: Extract part from issue body
         id: extract_username
         if: ${{github.event.issue.body}} contains 'username' && ${{github.event.issue.body}} contains '\d{6}'
