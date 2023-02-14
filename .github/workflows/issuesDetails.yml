@@ -30,4 +30,6 @@ jobs:
         id: extract_username
         run: |
           issueUserName=$(echo $issueBody | grep -Eo 'username[^\d]+(\d+)' | head -n1)
-          echo "::set-output name=username::$issueUserName"
+          run: echo "{name}={value}" >> $GITHUB_OUTPUT
+          echo $issueUserName
+          echo $GITHUB_OUTPUT
