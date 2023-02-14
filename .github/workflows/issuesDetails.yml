@@ -26,21 +26,32 @@ jobs:
           echo $issueTitle
           echo $issueBody
 
-      - name: Extract username
+      - name: Extract part from issue body using regex-username
         id: extract_username
-        uses: actions/github-script@v6
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            regex-username = /username[^\d]+(\d+)/;
-            body = github.context.payload.issue.body;
-            matchUserName = body.match (regex-username);
-            if (matchUserName) {
-              console.log(`::set-output name=issueUserName::${matchUserName[1]}`);
-            }
-      - name: Use extracted username
         run: |
-          echo "Username: ${{ steps.extract_username.outputs.issueUserName }}"
+          regex-username = /username[^\d]+(\d+)/;
+          body = github.context.payload.issue.body;
+          matchUserName = body.match (regex-username);
+          if (matchUserName) {
+            echo "::set-output name=issueUserName::${matchUserName[1]}";
+          }
+
+
+      # - name: Extract username
+      #   id: extract_username
+      #   uses: actions/github-script@v6
+      #   with:
+      #     github-token: ${{secrets.GITHUB_TOKEN}}
+      #     script: |
+      #       regex-username = /username[^\d]+(\d+)/;
+      #       body = github.context.payload.issue.body;
+      #       matchUserName = body.match (regex-username);
+      #       if (matchUserName) {
+      #         console.log(`::set-output name=issueUserName::${matchUserName[1]}`);
+            }
+      # - name: Use extracted username
+      #   run: |
+      #     echo "Username: ${{ steps.extract_username.outputs.issueUserName }}"
 
   # createIncident-Prod:
   #   if: github.event.comment.body == '/createIncident-prod'
