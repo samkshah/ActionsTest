@@ -11,7 +11,7 @@ on:
 jobs:
 
   createIncident-NonProd:
-    if: github.event.issue.type == 'opened'
+    # if: github.event.issue.type == 'opened'
     runs-on: ubuntu-latest
     env:
       issueNumber: ${{github.event.issue.number}}
