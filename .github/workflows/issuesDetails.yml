@@ -12,54 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
-      - name: Get Issue Details
-        uses: actions/github-script@v3
-        with:
-          github-token: ${{secrets.GITHUB_TOKEN}}
-          script: |
-            const issue = context.payload.issue
-            const issueNumber = issue.number
-            const issueTitle = issue.title
-            const issueBody = issue.body
-            const issueState = issue.state
-            const issueLabels = issue.labels
-            const issueAssignees = issue.assignees
-            const issueMilestone = issue.milestone
-            const issueCreatedAt = issue.created_at
-            const issueUpdatedAt = issue.updated_at
-            const issueClosedAt = issue.closed_at
-            const issueAuthor = issue.user.login
-            const issueAuthorAssociation = issue.author_association
-            const issueComments = issue.comments
-            const issueReactions = issue.reactions
-            const issueLocked = issue.locked
-            const issueActiveLockReason = issue.active_lock_reason
-            const issuePullRequest = issue.pull_request
-            const issueLinks = issue.html_url
-            const issueNodeID = issue.node_id
-            const issueURL = issue.url
-            const issueEventsURL = issue.events_url
-            const issueCommentsURL = issue.comments_url
-            const issueReactionsURL = issue.reactions_url
-            const issueLabelsURL = issue.labels_url
-            const issueAssigneesURL = issue.assignees_url
-            const issueTimelineURL = issue.timeline_url
-            const issueLockedURL = issue.lock_url
-            const issueAssignee = issue.assignee
-            const issueAssigneeLogin = issue.assignee.login
-            const issueAssigneeID = issue.assignee.id
-            const issueAssigneeNodeID = issue.assignee.node_id
-            const issueAssigneeAvatarURL = issue.assignee.avatar_url
-            const issueAssigneeGravatarID = issue.assignee.gravatar_id
-            const issueAssigneeURL = issue.assignee.url
-            const issueAssigneeHTMLURL = issue.assignee.html_url
-            const issueAssigneeFollowersURL = issue.assignee.followers_url
-            const issueAssigneeFollowingURL = issue.assignee.following_url
-            const issueAssigneeGistsURL = issue.assignee.gists_url
-            const issueAssigneeStarredURL = issue.assignee.starred_url
-            const issueAssigneeSubscriptionsURL = issue.assignee.subscriptions_url
-            const issue
+
       - name: Echo Details
         run: |
           echo "Issue Number: ${{env.ISSUE_NUMBER}}"
