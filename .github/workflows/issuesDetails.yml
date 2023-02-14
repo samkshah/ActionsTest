@@ -27,21 +27,36 @@ jobs:
           echo $issueTitle
           echo $issueBody
 
-  createIncident-Prod:
-    if: github.event.comment.body == '/createIncident-prod'
-    runs-on: ubuntu-latest
-    env:
-      issueNumber: ${{github.event.issue.number}}
-      issueTitle: ${{github.event.issue.title}}
-      issueBody: ${{github.event.issue.body}}
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-
-      - name: echo Details
+      - name: Extract username
+        id: extract_username
+        uses: actions/github-script@v3
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            const regex-username = /username[^\d]+(\d+)/;
+            const body = github.context.payload.issue.body;
+            const matchUserName = body.match (regex-username);
+            if (matchUserName) {
+              console.log(`::set-output name=issueUserName::${matchUserName[1]}`);
+            }
+      - name: Use extracted username
         run: |
-          echo $issueNumber
-          echo $issueTitle
-          echo $issueBody
-          issueUserName = ${{github.event.issue.body | regexReplaceAll('(?<=Username: ).*?(?=\\n)', '')}}
-          echo $issueUserName
+          echo "Username: ${{ steps.extract_username.outputs.issueUserName }}"
+
+  # createIncident-Prod:
+  #   if: github.event.comment.body == '/createIncident-prod'
+  #   runs-on: ubuntu-latest
+  #   env:
+  #     issueNumber: ${{github.event.issue.number}}
+  #     issueTitle: ${{github.event.issue.title}}
+  #     issueBody: ${{github.event.issue.body}}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+
+  #     - name: echo Details
+  #       run: |
+  #         echo $issueNumber
+  #         echo $issueTitle
+  #         echo $issueBody
+
