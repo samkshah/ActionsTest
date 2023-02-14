@@ -14,7 +14,7 @@ jobs:
     permissions:
       issues: write
       contents: read
-    # if: github.event.issue.type == 'opened'
+    if: github.event.action == 'opened'
     runs-on: ubuntu-latest
     env:
       issueNumber: ${{github.event.issue.number}}
