@@ -21,6 +21,6 @@ jobs:
     steps:
       - name: Extract part from issue body
         id: extract_username
-        if: issueBody contains 'username' && issueBody contains '\d{6}'
+        if: $issueBody contains 'username' && $issueBody contains '\d{6}'
         run: |
           echo $issueBody | grep -oP '(?<=username: ).*(?=\n)'
