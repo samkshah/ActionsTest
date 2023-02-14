@@ -4,15 +4,14 @@ name: Create Incident
 
 on:
   issue_comment:
-    types: [created,edited]
+    types: [created]
   issues:
     types: [opened,edited]
   workflow_dispatch:
-    
 
 jobs:
-  createIncident-NonProd:
-    # if: github.event.issue.type == 'opened'
+  getIssueDetails:
+    if: github.event.issue.type == 'opened'
     runs-on: ubuntu-latest
     env:
       issueNumber: ${{github.event.issue.number}}
@@ -25,9 +24,18 @@ jobs:
         run: |
           inc_userName=$(echo $issueBody | tr -d '\n' | tr -d '\r' | grep -oP '(?<=username: )\d+' | head -1)
           echo "inc_userName=$inc_userName" >> $GITHUB_OUTPUT
-        # echo "issueUserName=${{github.event.issue.body}} | grep -oP '(?<=username: )\d+'" >> $GITHUB_OUTPUT
-      #     echo "issueUserName=$issueUserName" >> $GITHUB_OUTPUT
 
       - name: Echo issueUserName
         run: |
           echo "UserName is: ${{steps.extract_username.outputs.inc_userName}}"
+
+      - name: Add issue comments
+        uses: actions/github-script@v6
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: ":wave: Extracted XSOAR incident information from original request.\nCreating incident in XSOAR...."
+            })
