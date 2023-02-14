@@ -15,6 +15,12 @@ jobs:
 
       - name: Echo Details
         run: |
-          echo "Issue Number: ${{github.event.issue.number}}"
-          echo "Issue Title: ${{github.event.issue.title}}"
-          echo "Issue Body: ${{github.event.issue.body}}"
+          const issueNumber = ${{github.event.issue.number}}"
+          echo issueTitle = ${{github.event.issue.title}}"
+          echo issueBody = ${{github.event.issue.body}}"
+
+      - name: echo Details
+        run: |
+          echo $issueNumber
+          echo $issueTitle
+          echo $issueBody
