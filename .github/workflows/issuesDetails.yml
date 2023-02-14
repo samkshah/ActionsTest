@@ -15,6 +15,6 @@ jobs:
 
       - name: Echo Details
         run: |
-          echo "Issue Number: ${{env.ISSUE_NUMBER}}"
-          echo "Issue Title: ${{env.ISSUE_TITLE}}"
-          echo "Issue Body: ${{env.ISSUE_BODY}}"
+          echo "Issue Number: ${{github.event.issue.number}}"
+          echo "Issue Title: ${{github.event.issue.title}}"
+          echo "Issue Body: ${{github.event.issue.body}}"
