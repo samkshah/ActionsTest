@@ -27,7 +27,8 @@ jobs:
 
       - name: Echo issueUserName
         run: |
-          echo ${{github.event.issue.type}}
+          # print github context
+          echo $GITHUB_CONTEXT
           echo "---------------"
           echo "UserName is: ${{steps.extract_username.outputs.inc_userName}}"
 
