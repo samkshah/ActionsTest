@@ -29,7 +29,7 @@ jobs:
       - name: Extract part from issue body
         id: extract_username
         run: |
-          regex-username = /username[^\d]+(\d+)/;
+          regex-username = /username[^\d]+\d+/;
           body = github.context.payload.issue.body;
           matchUserName = body.match (regex-username);
           if (matchUserName) {
