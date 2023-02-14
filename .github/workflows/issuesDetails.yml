@@ -19,13 +19,11 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-
       - name: echo Details
         run: |
           echo $issueNumber
           echo $issueTitle
           echo $issueBody
-
       - name: Extract part from issue body
         id: extract_username
         run: |
@@ -34,7 +32,4 @@ jobs:
           matchUserName = body.match (regex-username);
           if (matchUserName) {
             echo "::set-output name=issueUserName::${matchUserName[1]}";
-          }
-          else {
-            echo "::set-output name=issueUserName::";
           }
