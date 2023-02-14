@@ -11,6 +11,9 @@ on:
 
 jobs:
   getIssueDetails:
+    permissions:
+      issues: write
+      contents: read
     # if: github.event.issue.type == 'opened'
     runs-on: ubuntu-latest
     env:
