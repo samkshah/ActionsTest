@@ -26,8 +26,7 @@ jobs:
           echo $issueBody
           echo "...."
           # join multiple lines into one
-          issueBody=$(echo $issueBody | tr -d '\n' | tr -d '\r')
-          echo $issueBody
+          echo issueBody=$(echo $issueBody | tr -d '\n' | tr -d '\r')
         # echo "issueUserName=${{github.event.issue.body}} | grep -oP '(?<=username: )\d+'" >> $GITHUB_OUTPUT
       #     echo "issueUserName=$issueUserName" >> $GITHUB_OUTPUT
 
