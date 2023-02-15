@@ -14,12 +14,11 @@ jobs:
     permissions:
       issues: write
       contents: read
-    # if: github.event.action == 'opened'
+    if: github.event.action == 'opened' && github.event.issue.body != '' && github.event.issue.body != null && contains(github.event.issue.labels.*.name, 'Documentation')
     runs-on: ubuntu-latest
     env:
       issueTitle: ${{github.event.title}}
       issueBody: ${{github.event.issue.body}}
-      inc_userName: ''
     steps:
       - name: Dump GitHub context
         id: github_context_step
@@ -49,6 +48,5 @@ jobs:
               repo: context.repo.repo,
               body: ":wave: Extracted XSOAR incident information from original request.\nCreating incident in XSOAR....\
               \nIncident UserName: ${{steps.extract_username.outputs.inc_userName}} \
-              \nInc_UserName: ${{ env.inc_userName }} \
-              \nIncident Title: ${{ env.issueTitle }}"
+              Add more details here...."
             })
