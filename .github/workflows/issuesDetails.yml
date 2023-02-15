@@ -27,7 +27,7 @@ jobs:
 
       - name: Extract part from issue body
         id: extract_username
-        if: $issueBody contains 'username' && $issueBody contains '\d{6}'
+        if: ${{ env.issueBody }} contains 'username' && ${{ env.issueBody }} contains '\d{6}'
         run: |
           inc_userName=$(echo $issueBody | tr -d '\n' | tr -d '\r' | grep -oP '(?<=[uU]sername: )\d+' | head -1)
           echo "inc_userName=$inc_userName" >> $GITHUB_OUTPUT
