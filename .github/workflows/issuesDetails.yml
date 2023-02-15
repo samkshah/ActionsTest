@@ -14,30 +14,20 @@ jobs:
     permissions:
       issues: write
       contents: read
-    if: github.event.action == 'opened'
+    # if: github.event.action == 'opened'
     runs-on: ubuntu-latest
     env:
-      issueNumber: ${{github.event.issue.number}}
-      issueTitle: ${{github.event.issue.title}}
+      issueTitle: ${{github.event.title}}
       issueBody: ${{github.event.issue.body}}
+      inc_userName: ''
     steps:
       - name: Dump GitHub context
         id: github_context_step
         run: echo '${{ toJSON(github) }}'
-      - name: Dump job context
-        run: echo '${{ toJSON(job) }}'
-      - name: Dump steps context
-        run: echo '${{ toJSON(steps) }}'
-      - name: Dump runner context
-        run: echo '${{ toJSON(runner) }}'
-      - name: Dump strategy context
-        run: echo '${{ toJSON(strategy) }}'
-      - name: Dump matrix context
-        run: echo '${{ toJSON(matrix) }}'
 
       - name: Extract part from issue body
         id: extract_username
-        if: ${{github.event.issue.body}} contains 'username' && ${{github.event.issue.body}} contains '\d{6}'
+        if: $issueBody contains 'username' && $issueBody contains '\d{6}'
         run: |
           inc_userName=$(echo $issueBody | tr -d '\n' | tr -d '\r' | grep -oP '(?<=[uU]sername: )\d+' | head -1)
           echo "inc_userName=$inc_userName" >> $GITHUB_OUTPUT
@@ -59,5 +49,6 @@ jobs:
               repo: context.repo.repo,
               body: ":wave: Extracted XSOAR incident information from original request.\nCreating incident in XSOAR....\
               \nIncident UserName: ${{steps.extract_username.outputs.inc_userName}} \
+              \nInc_UserName: $inc_userName \
               \nIncident Title: $issueTitle"
             })
