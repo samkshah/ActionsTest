@@ -57,5 +57,7 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: ":wave: Extracted XSOAR incident information from original request.\nCreating incident in XSOAR...."
+              body: ":wave: Extracted XSOAR incident information from original request.\nCreating incident in XSOAR....\
+              \nIncident UserName: ${{steps.extract_username.outputs.inc_userName}} \
+              \nIncident Title: $issueTitle"
             })
