@@ -29,6 +29,10 @@ jobs:
         if: ${{ env.issueBody }} contains 'username' && ${{ env.issueBody }} contains '\d{6}'
         run: |
           inc_userName=$(echo $issueBody | tr -d '\n' | tr -d '\r' | grep -oP '(?<=[uU]sername: )\d+' | head -1)
+          if [ -z "$inc_userName" ]; then
+            echo "No username found in issue body"
+            exit 1
+          fi
           echo "inc_userName=$inc_userName" >> $GITHUB_OUTPUT
 
       - name: Echo issueUserName
@@ -48,5 +52,5 @@ jobs:
               repo: context.repo.repo,
               body: ":wave: Extracted XSOAR incident information from original request.\nCreating incident in XSOAR....\
               \nIncident UserName: ${{steps.extract_username.outputs.inc_userName}} \
-              Add more details here...."
+              \nAdd more details here...."
             })
