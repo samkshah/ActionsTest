@@ -30,7 +30,7 @@ jobs:
         run: |
           inc_userName=$(echo $issueBody | tr -d '\n' | tr -d '\r' | grep -oP '(?<=[uU]sername: )\d+' | head -1)
           if [ -z "$inc_userName" ]; then
-            echo "No username found in issue body"
+            echo "::error:: No username found in issue body, exiting workflow..."
             exit 1
           fi
           echo "inc_userName=$inc_userName" >> $GITHUB_OUTPUT
