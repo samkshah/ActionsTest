@@ -49,6 +49,6 @@ jobs:
               repo: context.repo.repo,
               body: ":wave: Extracted XSOAR incident information from original request.\nCreating incident in XSOAR....\
               \nIncident UserName: ${{steps.extract_username.outputs.inc_userName}} \
-              \nInc_UserName: $inc_userName \
-              \nIncident Title: $issueTitle"
+              \nInc_UserName: ${{ env.inc_userName }} \
+              \nIncident Title: ${{ env.issueTitle }}"
             })
